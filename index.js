@@ -21,3 +21,20 @@ function combineUsers(...args) {
 
 // Export for testing
 module.exports = combineUsers;
+require('datejs');
+
+function combineUsers(...args) {
+  const combinedObject = {
+    users: []
+  };
+
+  args.forEach(arr => {
+    combinedObject.users.push(...arr);
+  });
+
+  combinedObject.merge_date = new Date().toString('M/d/yyyy');
+
+  return combinedObject;
+}
+
+module.exports = combineUsers;
